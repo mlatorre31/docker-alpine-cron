@@ -1,0 +1,14 @@
+version: "3.2"
+
+services:
+
+  docker-cron:
+    build: https://github.com/mlatorre31/docker-alpine-cron.git
+#      context: .
+    restart: unless-stopped
+    volumes:
+      - ./data/docker/docker-cron/app:/app
+#      - ./data/docker/docker-cron/cron.d:/etc/cron.d
+
+    environment: 
+      CRON_STRINGS: '* * * * * python3 /app/mystore/mystorescrapper.py\n* * * * * /bin/echo "test2"'
