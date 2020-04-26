@@ -1,5 +1,5 @@
 #FROM frolvlad/alpine-python3
-FROM jfloff/alpine-python:3.6-slim
+FROM jfloff/alpine-python:3.6
 
 RUN \
     echo "**** install build packages ****" && \
@@ -9,9 +9,10 @@ RUN \
     libffi-dev \
     openssl-dev \
     libressl-dev \
-    libxml2-dev \
-    python3-dev && \
+    libxml2-dev && \
+#    python3-dev && \
     echo "**** install packages ****" && \
+    echo "http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;\
     apk add --no-cache \
     dcron \
     libxslt-dev && \
