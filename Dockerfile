@@ -1,4 +1,5 @@
-FROM frolvlad/alpine-python3
+#FROM frolvlad/alpine-python3
+FROM jfloff/alpine-python:3.6-slim
 
 RUN \
     echo "**** install build packages ****" && \
