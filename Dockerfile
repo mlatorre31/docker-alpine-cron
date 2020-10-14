@@ -15,9 +15,11 @@ RUN \
     echo "http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;\
     apk add --no-cache \
     dcron \
+    jpeg-dev \
     libxslt-dev && \
     echo "install pip packages ****" && \
     pip install -U \
+    pdfplumber \
     scrapy && \
     echo "**** setup dcron ****" && \
     mkdir -p /var/log/cron && \
