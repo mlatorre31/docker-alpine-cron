@@ -19,6 +19,7 @@ RUN \
     libxslt-dev && \
     echo "install pip packages ****" && \
     pip install -U \
+    apprise \
     pdfplumber \
     scrapy && \
     echo "**** setup dcron ****" && \
