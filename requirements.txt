@@ -1,0 +1,4 @@
+cryptography==3.3.1
+apprise
+pdfplumber
+scrapy==2.4.1
