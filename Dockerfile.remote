@@ -3,7 +3,8 @@ FROM jfloff/alpine-python:3.6-slim
 RUN  echo "http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;
 
 
-RUN /entrypoint.sh
+RUN /entrypoint.sh \
+    -a dcron
 
 RUN \
     echo "**** setup dcron ****" && \
