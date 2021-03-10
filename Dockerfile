@@ -6,7 +6,8 @@ COPY build-requirements.txt /
 COPY apk-requirements.txt /
 COPY requirements.txt /
 
-RUN /entrypoint.sh
+RUN /entrypoint.sh \
+    -a dcron
 
 RUN \
     echo "**** setup dcron ****" && \
