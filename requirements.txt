@@ -3,3 +3,4 @@ apprise
 pdfplumber
 scrapy==2.4.1
 selenium==3.141.0
+bs4
