@@ -1,5 +1,3 @@
 jpeg-dev
 libxslt-dev
-chromium
-chromium-chromedriver
 at
