@@ -1,6 +1,6 @@
 cryptography==3.3.2
 apprise
 pdfplumber
-scrapy==2.4.1
+scrapy==2.5.1
 selenium==3.141.0
 bs4
