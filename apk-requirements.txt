@@ -1,4 +1,2 @@
 tzdata
-jpeg-dev
-libxslt-dev
-at
+curl
