@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-atd
 if [ ! -z "$CRON_TAIL" ] 
 then
 	# crond running in background and log file reading every second by tail to STDOUT
