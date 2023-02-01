@@ -4,3 +4,4 @@ libffi-dev
 openssl-dev 
 libressl-dev 
 libxml2-dev
+libstdc++
