@@ -1,4 +1,4 @@
-FROM jfloff/alpine-python:3.6-slim
+FROM jfloff/alpine-python:3.8-slim
 
 RUN  echo "http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;
 
