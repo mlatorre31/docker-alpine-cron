@@ -2,3 +2,5 @@ tzdata
 jpeg-dev
 libxslt-dev
 at
+#panda
+libstdc++
