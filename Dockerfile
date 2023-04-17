@@ -1,6 +1,4 @@
-FROM jfloff/alpine-python:3.8-slim
-
-RUN  echo "http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;
+FROM ghcr.io/mlatorre31/alpine-python:3.11-slim
 
 COPY build-requirements.txt /
 COPY apk-requirements.txt /
