@@ -4,6 +4,8 @@ COPY build-requirements.txt /
 COPY apk-requirements.txt /
 COPY requirements.txt /
 
+RUN echo "http://dl-cdn.alpinelinux.org/alpine/v$ALPINE_VERSION/community" >> /etc/apk/repositories ;
+
 RUN /entrypoint.sh \
     -a dcron
 
