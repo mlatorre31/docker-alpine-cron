@@ -13,12 +13,15 @@ jobs:
         include:
           - image: docker-alpine-cron/cron
             dockerfile: Dockerfile
+            tag: local
           - image: docker-alpine-cron/cron
             dockerfile: Dockerfile.remote
             tag: remote
 
     steps:
-
+      - name: Checkout
+        uses: actions/checkout@v3
+      
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
