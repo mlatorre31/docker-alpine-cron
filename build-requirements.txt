@@ -1,7 +1,6 @@
 gcc
 musl-dev
 libffi-dev 
-openssl-dev 
-libressl-dev 
+openssl-dev
 libxml2-dev
 libstdc++
