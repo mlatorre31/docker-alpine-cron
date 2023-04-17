@@ -36,4 +36,4 @@ jobs:
           file: ${{ matrix.dockerfile }}
           repository: mlatorre31/docker-alpine-cron/cron
           push: true
-          tag: ${{ matrix.tag }}
+          tags: ${{ matrix.tag }}
