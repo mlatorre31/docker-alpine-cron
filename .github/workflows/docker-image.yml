@@ -38,4 +38,4 @@ jobs:
           context: .
           file: ${{ matrix.dockerfile }}
           push: true
-          tags: ${{ matrix.tag }}
+          tags: ghcr.io/mlatorre31/docker-alpine-cron/cron:${{ matrix.tag }}
