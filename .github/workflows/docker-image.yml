@@ -3,21 +3,36 @@ name: Publish Docker image
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
 
 jobs:
   push_to_registry:
     name: Push Docker image to GitHub Packages
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        include:
+          - image: docker-alpine-cron/cron
+            dockerfile: Dockerfile
+          - image: docker-alpine-cron/cron
+            dockerfile: Dockerfile.remote
+            tag: remote
+
     steps:
-      - name: Check out the repo
-        uses: actions/checkout@v2
-      - name: Push to GitHub Packages
-        uses: docker/build-push-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Login to GHCR
+        uses: docker/login-action@v2
         with:
-          username: ${{ github.actor }}
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
+
+      - name: Push to GitHub Packages
+        uses: docker/build-push-action@v4.0.0
+        with:
+          context: .
+          file: ${{ matrix.dockerfile }}
           repository: mlatorre31/docker-alpine-cron/cron
-          tag_with_ref: true
+          tag: ${{ matrix.tag }}
