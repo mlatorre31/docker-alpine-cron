@@ -12,8 +12,23 @@ By default cron running in foreground
 #### Cron files
 - /etc/cron.d - place to mount custom crontab files  
 
-When image will run, files in */etc/cron.d* will copied to */var/spool/cron/crontab*.   
-If *CRON_STRINGS* defined script creates file */var/spool/cron/crontab/CRON_STRINGS*  
+When image will run, files in */etc/cron.d* will copied to */var/spool/cron/crontabs*.
+If *CRON_STRINGS* defined script creates file */var/spool/cron/crontabs/CRON_STRINGS*
+
+A background sync runs immediately at startup and every 60 seconds. Adds and edits in
+*/etc/cron.d* apply to the running dcron within about 2 minutes; deletions stop the
+corresponding jobs within the same interval. The environment-generated *CRON_STRINGS*
+job is preserved during these changes.
+
+dcron ignores filenames containing a dot, so use only letters, digits, underscores and
+hyphens for schedulable job names. Files whose names begin with a dot are never managed
+by the sync loop. Other dotted names are copied but are not scheduled or sent to dcron
+as reload notifications. Spool files must be owned by root (uid 0) or dcron silently
+ignores them; the sync loop writes root-owned files with mode 0644.
+
+The names *cron.update* and *CRON_STRINGS* are reserved. The sync loop never manages,
+overwrites or deletes spool files with those names, regardless of files with the same
+names in */etc/cron.d*.
 
 #### Log files
 Log file by default placed in /var/log/cron/cron.log 
